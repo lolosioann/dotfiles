@@ -1,0 +1,13 @@
+spotify/
+Electron/
+Vencord/
+discord/
+dconf
+user-dirs.dirs
+user-dirs.locale
+spicetify/
+obsidian/
+go/
+
+pulse/
+tmux/plugins/

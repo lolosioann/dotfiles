@@ -1,0 +1,14 @@
+show=drun
+prompt=Search
+width=40%
+height=40%
+location=center
+insensitive=true
+allow-markup=true
+term=alacritty
+allow-images=true
+hide-scroll=true
+no-actions=true
+print-command=true
+filter-rate=100
+image-size=24
