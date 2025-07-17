@@ -8,6 +8,8 @@ user-dirs.locale
 spicetify/
 obsidian/
 go/
-
+zsh/.zcompdump
 pulse/
 tmux/plugins/
+nvim/lazy-lock.json
+
