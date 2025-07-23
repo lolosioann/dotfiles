@@ -12,4 +12,4 @@ zsh/.zcompdump
 pulse/
 tmux/plugins/
 nvim/lazy-lock.json
-
+gtk-4.0/assets

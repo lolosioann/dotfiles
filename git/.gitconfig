@@ -1,5 +1,60 @@
 [user]
 	name = lolosioann
-	email = lolosioann@gmail.com
+  email = lolosioann@gmail.com
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
+[core]
+  editor = nvim
+  compression = 9
+  preloadindex = true
+
+#[url 'git@github.com:lolosioann/']
+#  insteadOf = 'me:'
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[push]
+  autoSetupRemote = true
+  default = current
+
+[pull]
+  default = current
+  rebase = true
+
+[rebase]
+  autoStash = true
+
+[log]
+  abbrevCommit = true
+  graphColors = blue,yellow,cyan,magenta,green,red
+
+[color "decorate"]
+  HEAD = red
+  branch = blue
+  tag = yellow
+  remoteBranch = magenta
+
+[color "branch"]
+  current = magenta
+  local = default
+  remote = yellow
+  upstream = green
+  plain = blue
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = -taggerdate
+
+
+
+
+
+
+

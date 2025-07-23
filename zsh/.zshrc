@@ -34,6 +34,8 @@ zinit cdreplay -q
 
 alias ls='eza'
 alias spicetify='${XDG_CONFIG_HOME:-$HOME/config}/spicetify/spicetify'
+alias gs='git status --short'
+alias gl="git log --all --graph"
 
 # History
 HISTSIZE=5000
