@@ -1,3 +1,11 @@
+# Ignore all contents of Code except specific files
+Code/*
+!Code/User/
+Code/User/*
+!Code/User/settings.json
+!Code/User/keybindings.json
+
+# Ignore personal app configs and caches
 spotify/
 Electron/
 Vencord/
