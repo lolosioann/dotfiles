@@ -1,20 +1,28 @@
+# .zshrc
+# This file is sourced by zsh when a new shell is started.
+
+# added by p10k, must stay at the top
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+# Enable zinit plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-ZSH_COMPDUMP=${XDG_CACH_HOME:-$HOME/.cache}/zsh/zcompdump
 
 if [ ! -d "$ZINIT_HOME" ]; then
-	mkdir -p "$(dirname $ZINIT_HOME)" 
+	mkdir -p "$(dirname $ZINIT_HOME)"
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Theme
-zinit ice depth 1; zinit light romkatv/powerlevel10k
 
-#addons
+# ------- SOURCE ALIASES -------
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.zsh"
+
+
+# ----- PLUGINS ------
+zinit ice depth 1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -22,22 +30,21 @@ zinit light Aloxaf/fzf-tab
 zinit light fdellwing/zsh-bat
 zinit light zshzoo/cd-ls
 
-# Snippets
+
+# ------- SNIPPETS -------
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
-# Load completions
+
+# ----- COMPLETIONS -----
 autoload -U compinit && compinit
-# cache compinit for performance
+autoload -U colors && colors
 zinit cdreplay -q
+# case insensitive completions
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+_comp_options+=(globdots) # show hidden files in completions
 
-
-alias ls='eza'
-alias spicetify='${XDG_CONFIG_HOME:-$HOME/config}/spicetify/spicetify'
-alias gs='git status --short'
-alias gl="git log --all --graph"
-
-# History
+# -------- HISTORY --------
 HISTSIZE=5000
 HISTFILE=${XDG_DATA_HOME:-$HOME/.local}/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -51,22 +58,28 @@ setopt hist_find_no_dups
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# ---------- VIM MODE ----------
+bindkey -v
+export KEYTIMEOUT=5
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line
 
-# fzf integration
+
+# ---------- MISC ------------
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# source p10k
+# change directory using yazi
+ycd () {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+bindkey -s "^y" "ycd\n"
+
+# source .p10k.zsh for p10k config
 [[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh ]] || source ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh
-
-
-export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
-export SDL_VIDEODRIVER=wayland
-export GDK_BACKEND=wayland
-export XDG_SESSION_TYPE=wayland
-export CLUTTER_BACKEND=wayland
-export ELECTRON_OZONE_PLATFORM_HINT=auto
+setopt autocd
