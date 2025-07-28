@@ -5,13 +5,14 @@
 [init]
   defaultBranch = main
 
+[alias]
+  st = status --short
+  l = log --all --graph --decorate
+
 [core]
   editor = nvim
   compression = 9
   preloadindex = true
-
-#[url 'git@github.com:lolosioann/']
-#  insteadOf = 'me:'
 
 [status]
   branch = true
@@ -21,6 +22,7 @@
 [push]
   autoSetupRemote = true
   default = current
+  followTags = true
 
 [pull]
   default = current
@@ -32,6 +34,23 @@
 [log]
   abbrevCommit = true
   graphColors = blue,yellow,cyan,magenta,green,red
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[column]
+  ui = auto
 
 [color "decorate"]
   HEAD = red
@@ -45,13 +64,6 @@
   remote = yellow
   upstream = green
   plain = blue
-
-[branch]
-  sort = -committerdate
-
-[tag]
-  sort = -taggerdate
-
 
 
 
