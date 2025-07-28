@@ -1,0 +1,55 @@
+[global]
+frame_color = "#89b4fa"
+separator_color= frame
+highlight = "#89b4fa"
+follow = mouse
+width = 350
+height = (0, 300)
+origin = top-right
+offset = (35, 35)
+indicate_hidden = yes
+notification_limit = 5
+gap_size = 12
+padding = 12
+horizontal_padding = 20
+frame_width = 1
+transparency = 5
+sort = no
+
+# Progress bar
+progress_bar_frame_width = 0
+progress_bar_corner_radius = 3
+
+# Text
+# font = Noto Sans CJK JP 10
+markup = full
+format = "<small>%a</small>\n<b>%s</b>\n%b"
+alignment = left
+vertical_alignment = center
+show_age_threshold = -1
+hide_duplicate_count = false
+
+# Misc/Advanced
+dmenu = wofi --show drun --prompt 'Open with'
+corner_radius = 10
+
+# Mouse
+mouse_left_click = close_current
+mouse_middle_click = do_action
+mouse_right_click = close_all
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+timeout = 5
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+timeout = 5
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+timeout = 0
