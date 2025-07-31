@@ -1,7 +1,7 @@
 # ---- ZSH ENVIRONMENT VARS ----
 ZDOTDIR=${XDG_CONFIG_HOME:-$HOME/.config}/zsh
-ZSH_COMPDUMP=${XDG_CACH_HOME:-$HOME/.cache}/zsh/zcompdump
-
+ZSH_COMPDUMP=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump
+GOPATH=${XDG_DATA_HOME:-$HOME/.local/share}/go
 
 # ----- DEFAULT PROGRAMS -----
 export EDITOR="nvim"
@@ -20,11 +20,13 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 
 # ------ PATH ------
-# export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 path=(
     $PATH
+    $HOME/.local/bin
     "$XDG_CONFIG_HOME/scripts"
     "$XDG_CONFIG_HOME/spicetify"
 )
 typeset -U path
 export PATH="$PATH"
+
+
