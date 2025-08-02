@@ -83,3 +83,6 @@ bindkey -s "^y" "ycd\n"
 # source .p10k.zsh for p10k config
 [[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh ]] || source ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh
 setopt autocd
+
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
