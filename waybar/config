@@ -5,7 +5,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "bluetooth", "memory", "cpu", "battery"],
+  "modules-right": ["network", "bluetooth", "memory", "cpu", "wireplumber", "battery"],
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -17,6 +17,14 @@
     }
   },
 
+  "wireplumber": {
+    "format": "{icon}",
+    "tooltip-format": "Playing at {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
 
   "network": {
     "format-wifi": " {essid} ({signalStrength}%)",
@@ -46,8 +54,10 @@
 
   
   "cpu": {
+    "interval": 5,
     "format": " {usage}%",
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "kitty -e btop"
   },
 
   
@@ -66,9 +76,18 @@
 
   
   "clock": {
-    "format": " {:%H:%M}",
-    "tooltip-format": "{:%A, %B %d, %Y}",
-    "interval": 60
+    "format": "{:%A %H:%M}",
+    "interval": 60,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 4,
+      "format": {
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    }
   }
 }
 
