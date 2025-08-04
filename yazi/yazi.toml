@@ -1,0 +1,7 @@
+[mgr]
+show_hidden = true
+sort_by = "mtime"
+sort_sensitive = false
+show_symlink = true
+linemode = "size"
+
