@@ -5,3 +5,8 @@ sort_sensitive = false
 show_symlink = true
 linemode = "size"
 
+[preview]
+wrap = "yes"
+tab_size = 2
+
+
