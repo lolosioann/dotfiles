@@ -1,79 +1,85 @@
+@import "mocha.css";
+
 * {
   border: none;
-  border-radius: 0;
-  font-family: JetBrainsMono Nerd Font, monospace;
-  font-size: 13px;
+  border-radius: 6px;
+  padding: 0 8px;
+  margin: 0 4px;
+  margin-top: 1px;
+  font-family: "FiraCode Nerd Font Mono Regular";
+  font-size: 12px;
   min-height: 0;
+  color: @text;
+  transition: all 0.2s ease; /* Add smooth transitions to all elements */
 }
 
 window#waybar {
-  background-color: #1e1e2e; /* Mocha base */
-  color: #cdd6f4;            /* Text */
-  border-radius: 0;
+  margin: 0 0;
+  padding: 0 0;
+  background: @base;
 }
 
 #workspaces {
-  padding: 0 8px;
+  padding: 0 0;
+  margin: 0 0;
 }
 
 #workspaces button {
-  color: #cdd6f4;
+  color: @text;
   background-color: transparent;
   padding: 0 6px;
-  font-size: 16px;
+  font-size: 12px;
+  transition: all 0.2s ease; /* Smooth transitions for workspace buttons */
 }
 
 #workspaces button.active {
-  color: #f5e0dc; /* Rosewater */
+  color: @rosewater;
+  background-color: @surface0; /* Subtle background for active workspace */
 }
 
 #workspaces button.urgent {
-  color: #f38ba8; /* Red */
+  color: @red;
+  background-color: rgba(243, 139, 168, 0.1); /* Very subtle red background for urgency */
 }
 
-#network,
-#battery,
-#memory,
-#cpu,
-#clock {
-  padding: 0 8px;
-  margin: 4px 4px;
-  border-radius: 6px;
-  background-color: #313244; /* Surface0 */
-}
+/* Remove empty clock selector */
 
 #battery.warning {
-  color: #f9e2af; /* Yellow */
+  color: @yellow;
 }
 
 #battery.critical {
-  color: #f38ba8; /* Red */
-}
-
-#bluetooth {
-  padding: 0 8px;
-  margin: 4px 4px;
-  border-radius: 6px;
-  background-color: #313244; /* Surface0 */
-  color: #cdd6f4;             /* Text */
+  color: @red;
 }
 
 #bluetooth.connected {
-  color: #a6e3a1; /* Green for connected */
+  color: @green;
 }
 
-#bluetooth.disabled,
+#bluetooth.disabled {
+  color: @subtext0;
+}
+
 #bluetooth.off {
-  color: #9399b2; /* Subtext0 - dimmed for off state */
+  color: @subtext0;
 }
 
+/* Hover effects */
 #workspaces button:hover,
+#clock:hover,
 #network:hover,
 #bluetooth:hover,
-#memory:hover,
 #cpu:hover,
-#battery:hover,
-#clock:hover {
-  background-color: #45475a; /* Surface1 */
+#memory:hover,
+#temperature:hover,
+#wireplumber:hover,
+#language:hover,
+#battery:hover {
+  background-color: @surface1;
   transition: background-color 0.2s ease;
+}
+
+/* Workspace-specific hover (don't override active state) */
+#workspaces button:hover:not(.active) {
+  background-color: @surface0;
 }
