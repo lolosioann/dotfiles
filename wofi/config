@@ -1,14 +1,16 @@
-show=drun
-prompt=Search
-width=40%
-height=40%
-location=center
-insensitive=true
-allow-markup=true
-term=alacritty
-allow-images=true
-hide-scroll=true
-no-actions=true
-print-command=true
-filter-rate=100
-image-size=24
+width = 40%
+lines = 6
+
+hide_scroll = true
+allow_images = true
+image_size = 25
+normal_window = true
+prompt = 
+
+insensitive = true
+columns = 1
+term = kitty
+single_click = true
+
+key_up = Shift+K
+key_down = Shift+J

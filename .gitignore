@@ -21,4 +21,5 @@ pulse/
 tmux/plugins/
 nvim/lazy-lock.json
 gtk-4.0/assets
-user-dirs.locale.bak
+*.bak
+QtProject/
