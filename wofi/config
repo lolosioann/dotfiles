@@ -11,6 +11,7 @@ insensitive = true
 columns = 1
 term = kitty
 single_click = true
+no_actions = true
 
 key_up = Shift+K
 key_down = Shift+J
