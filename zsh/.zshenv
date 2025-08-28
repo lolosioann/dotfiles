@@ -7,6 +7,8 @@ GOPATH=${XDG_DATA_HOME:-$HOME/.local/share}/go
 export EDITOR="nvim"
 export BROWSER="zen-browser"
 
+# ----- Matplotlib backend ------
+export MPLBACKEND=TkAgg  
 
 # ------ FIX SOME HYPRLAND ISSUES ------
 # These are needed for some applications to work properly under Wayland
