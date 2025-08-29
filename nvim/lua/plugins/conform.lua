@@ -8,8 +8,11 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "ruff" },
+			python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
 			markdown = { "prettier" },
+			typst = { "prettypst" },
+			bash = { "beautysh" },
+			zsh = { "beautysh" },
 		},
 		format_on_save = {
 			timeout_ms = 500,

@@ -1,40 +1,32 @@
 -- Modified kickstart.nvim configuration
 return {
-	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		-- Automatically install LSPs and related tools to stdpath for Neovim
-		-- Mason must be loaded before its dependents so we need to set it up here.
-		{ "mason-org/mason.nvim", opts = {} },
+		{
+			"mason-org/mason.nvim",
+			opts = {
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
+			},
+		},
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-		-- Useful status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
-
-		-- Allows extra capabilities provided by blink.cmp
-		-- 'saghen/blink.cmp',
+		"saghen/blink.cmp",
 	},
 	config = function()
-		--  This function gets run when an LSP attaches to a particular buffer.
-		--    That is to say, every time a new file is opened that is associated with
-		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-		--    function will be executed to configure the current buffer
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
-				-- NOTE: Remember that Lua is a real programming language, and as such it is possible
-				-- to define small helper and utility functions so you don't have to repeat yourself.
-				--
-				-- In this case, we create a function that lets us more easily define mappings specific
-				-- for LSP related items. It sets the mode, buffer and description for us each time.
 				local map = function(keys, func, desc, mode)
 					mode = mode or "n"
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
-
-				-- Rename the variable under your cursor.
-				--  Most Language Servers support renaming across files, etc.
 				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
@@ -151,6 +143,7 @@ return {
 			virtual_text = {
 				source = "if_many",
 				spacing = 2,
+				prefix = "●",
 				format = function(diagnostic)
 					local diagnostic_message = {
 						[vim.diagnostic.severity.ERROR] = diagnostic.message,
@@ -180,21 +173,21 @@ return {
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
 			bashls = {},
-			-- clangd = {},
-			-- gopls = {},
-			pyright = {},
+			basedpyright = {
+				settings = {
+					python = {
+						analysis = {
+							-- typeCheckingMode = "basic",
+							-- autoSearchPaths = true,
+							-- useLibraryCodeForTypes = true,
+							autoImportCompletions = true,
+						},
+					},
+				},
+			},
 			ruff = {},
 			marksman = {},
-			-- rust_analyzer = {},
-			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-			--
-			-- Some languages (like typescript) have entire language plugins that can be useful:
-			--    https://github.com/pmizio/typescript-tools.nvim
-			--
-			-- But for many setups, the LSP (`ts_ls`) will work just fine
-			-- ts_ls = {},
-			--
-
+			tinymist = {},
 			lua_ls = {
 				-- cmd = { ... },
 				-- filetypes = { ... },
@@ -228,6 +221,8 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
 			"prettier",
+			"prettypst",
+			"beautysh",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
