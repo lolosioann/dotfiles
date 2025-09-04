@@ -27,6 +27,7 @@ path=(
     $HOME/.local/bin
     "$XDG_CONFIG_HOME/scripts"
     "$XDG_CONFIG_HOME/spicetify"
+    "$HOME/.cargo/bin"
 )
 typeset -U path
 export PATH="$PATH"
