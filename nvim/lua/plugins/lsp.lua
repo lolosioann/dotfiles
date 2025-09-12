@@ -110,35 +110,77 @@ return {
 		-- Clean server configurations focused on each tool's strengths
 		local servers = {
 			bashls = {},
-
-			-- Basedpyright: Optimized for type analysis and code intelligence
-			basedpyright = {
+			-- ty = {},
+			pyright = {
 				settings = {
-					basedpyright = {
-						-- Let Ruff handle import organization
-						disableOrganizeImports = true,
-					},
 					python = {
 						analysis = {
-							-- Strong type checking
-							typeCheckingMode = "standard",
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = true,
-							autoImportCompletions = true,
-
-							-- Focus on type-related diagnostics
-							diagnosticMode = "openFilesOnly",
-
-							-- Only disable the most obvious overlaps with Ruff
-							ignore = {
-								"reportUnusedImport", -- Ruff handles this better
-								"reportUnusedVariable", -- Ruff is more accurate
-							},
+							typeCheckingMode = "off",
 						},
 					},
 				},
 			},
-
+			-- pylsp = {
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			plugins = {
+			-- 				-- formatter options
+			-- 				black = { enabled = false },
+			-- 				autopep8 = { enabled = false },
+			-- 				flake8 = { enabled = true },
+			-- 				yapf = { enabled = false },
+			-- 				-- linter options
+			-- 				pylint = { enabled = false },
+			-- 				ruff = { enabled = true },
+			-- 				pyflakes = { enabled = false, report_progress = false },
+			-- 				pycodestyle = { enabled = false, report_progress = false },
+			-- 				mccabe = { enabled = false, report_progress = false },
+			-- 				-- type checker
+			-- 				pylsp_mypy = {
+			-- 					enabled = true,
+			-- 					report_progress = true,
+			-- 					live_mode = false,
+			-- 				},
+			-- 				-- auto-completion options
+			-- 				jedi_completion = { fuzzy = true },
+			-- 				-- import sorting
+			-- 				isort = { enabled = false },
+			-- 			},
+			-- 		},
+			-- 	},
+			-- 	flags = {
+			-- 		debounce_text_changes = 200,
+			-- 	},
+			-- 	capabilities = capabilities,
+			-- },
+			-- Basedpyright: Optimized for type analysis and code intelligence
+			-- basedpyright = {
+			-- 	settings = {
+			-- 		basedpyright = {
+			-- 			-- Let Ruff handle import organization
+			-- 			disableOrganizeImports = true,
+			-- 		},
+			-- 		python = {
+			-- 			analysis = {
+			-- 				-- Strong type checking
+			-- 				typeCheckingMode = "off",
+			-- 				autoSearchPaths = true,
+			-- 				useLibraryCodeForTypes = true,
+			-- 				autoImportCompletions = true,
+			--
+			-- 				-- Focus on type-related diagnostics
+			-- 				diagnosticMode = "openFilesOnly",
+			--
+			-- 				-- Only disable the most obvious overlaps with Ruff
+			-- 				ignore = {
+			-- 					"reportUnusedImport", -- Ruff handles this better
+			-- 					"reportUnusedVariable", -- Ruff is more accurate
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+			--
 			-- Ruff: Optimized for comprehensive linting and code quality
 			ruff = {
 				init_options = {
@@ -168,9 +210,11 @@ return {
 
 		-- Install required tools
 		local ensure_installed = vim.tbl_keys(servers or {})
+
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"prettier",
+			"ruff",
 			"prettypst",
 			"beautysh",
 		})
