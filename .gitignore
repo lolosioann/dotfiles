@@ -1,4 +1,8 @@
 # Ignore personal app configs and caches
+kicad/
+github-copilot/
+libreoffice/
+sftpman/
 spotify/
 Electron/
 Vencord/

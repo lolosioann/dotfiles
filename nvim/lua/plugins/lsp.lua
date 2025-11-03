@@ -109,6 +109,7 @@ return {
 
 		-- Clean server configurations focused on each tool's strengths
 		local servers = {
+			clangd = {},
 			bashls = {},
 			-- ty = {},
 			pyright = {
@@ -217,6 +218,8 @@ return {
 			"ruff",
 			"prettypst",
 			"beautysh",
+			"clang-format",
+			"cpplint",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
