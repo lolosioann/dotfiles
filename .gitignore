@@ -1,4 +1,6 @@
 # Ignore personal app configs and caches
+Code/
+LibreCAD/
 kicad/
 github-copilot/
 libreoffice/
