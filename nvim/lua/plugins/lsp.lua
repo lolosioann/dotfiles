@@ -31,9 +31,28 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					-- Python
 					"ruff",
 					"ty",
+					-- Lua
 					"lua_ls",
+					-- Markdown
+					"marksman",
+					-- bash
+					"bashls",
+					-- json
+					"jsonls",
+					-- yaml
+					"yamlls",
+					-- Go
+					"gopls",
+					-- Rust
+					"rust_analyzer",
+					-- C/C++
+					"clangd",
+					-- Typst
+					"tinymist",
+					"prettypst",
 				},
 			})
 		end,
@@ -71,10 +90,27 @@ return {
 			vim.lsp.config("*", {
 				root_markers = { ".git" },
 			})
-
+			-- Python
 			vim.lsp.enable("ruff")
 			vim.lsp.enable("ty")
+			-- Lua
 			vim.lsp.enable("lua_ls")
+			-- Markdown
+			vim.lsp.enable("marksman")
+			-- bash
+			vim.lsp.enable("bashls")
+			-- json
+			vim.lsp.enable("jsonls")
+			-- yaml
+			vim.lsp.enable("yamlls")
+			-- Go
+			vim.lsp.enable("gopls")
+			-- Rust
+			vim.lsp.enable("rust_analyzer")
+			-- C/C++
+			vim.lsp.enable("clangd")
+			-- Typst
+			vim.lsp.enable("tinymist")
 		end,
 	},
 }

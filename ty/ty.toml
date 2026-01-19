@@ -1,0 +1,4 @@
+
+[environment]
+# Multiple directories (priority order)
+root = ["./src"]

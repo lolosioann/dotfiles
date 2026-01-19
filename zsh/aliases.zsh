@@ -11,4 +11,6 @@ alias juniormnt='sftpman mount junior && cd /mnt/sshfs/junior'
 alias juniorumnt='cd ~ && sftpman umount junior'
 alias vroom='sftpman mount vroom && cd /mnt/sshfs/vroom'
 alias unvroom='cd ~ && sftpman umount vroom'
-
+alias gz='QT_QPA_PLATFORM=xcb gazebo.gz'
+alias dockup='docker compose -f ~/Devel/vroomitor/docker-compose.yml up -d --build'
+alias dockdown='docker compose -f ~/Devel/vroomitor/docker-compose.yml down'

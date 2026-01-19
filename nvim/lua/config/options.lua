@@ -15,7 +15,7 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- Linewrap
-opt.wrap = false
+opt.wrap = true
 
 -- Safety + Backups
 opt.swapfile = false
