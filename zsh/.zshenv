@@ -32,6 +32,7 @@ path=(
 )
 typeset -U path
 export PATH="$PATH"
+export PATH="$HOME/matlab/bin:$PATH"
 
 # fzf catppuccin mocha theme
 export FZF_DEFAULT_OPTS=" \

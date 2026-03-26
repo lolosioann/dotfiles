@@ -1,0 +1,5 @@
+[info]
+show = no
+
+[keys.viewer]
+Shift+space= prev_file

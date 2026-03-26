@@ -52,7 +52,9 @@ return {
 					"clangd",
 					-- Typst
 					"tinymist",
-					"prettypst",
+					-- "prettypst",
+					-- MATLAB
+					"matlab_ls",
 				},
 			})
 		end,
@@ -111,6 +113,15 @@ return {
 			vim.lsp.enable("clangd")
 			-- Typst
 			vim.lsp.enable("tinymist")
+			-- MATLAB
+			vim.lsp.config("matlab_ls", {
+				settings = {
+					matlab = {
+						installPath = "/home/lolosioann/matlab",
+					},
+				},
+			})
+			vim.lsp.enable("matlab_ls")
 		end,
 	},
 }

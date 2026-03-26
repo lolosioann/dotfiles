@@ -2,12 +2,12 @@
 
 * {
   border: none;
-  border-radius: 6px;
-  padding: 0 8px;
+  border-radius: 3px;
+  padding: 0 5px;
   margin: 0 4px;
   margin-top: 1px;
-  font-family: "FiraCode Nerd Font Mono Regular";
-  font-size: 12px;
+  font-family: "FiraCode Nerd Font Propo";
+  font-size: 13px;
   min-height: 0;
   color: @text;
   transition: all 0.2s ease; /* Add smooth transitions to all elements */
@@ -27,7 +27,7 @@ window#waybar {
 #workspaces button {
   color: @text;
   background-color: transparent;
-  padding: 0 6px;
+  padding: 0 3px;
   font-size: 12px;
   transition: all 0.2s ease; /* Smooth transitions for workspace buttons */
 }

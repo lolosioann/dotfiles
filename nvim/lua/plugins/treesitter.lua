@@ -15,6 +15,7 @@ return {
 				"json",
 				"yaml",
 				"toml",
+				"matlab",
 			},
 			auto_install = true,
 			sync_install = false,

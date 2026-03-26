@@ -1,4 +1,11 @@
 # Ignore personal app configs and caches
+systemd/
+otto/
+obsidian-headless/
+matrun/
+inkscape/
+autostart/
+secrets.zsh
 Code/
 LibreCAD/
 kicad/

@@ -1,9 +1,9 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
-application/md=glow
-application/png=swayimg
-application/jpg=swayimg
-application/jpeg=swayimg
+text/markdown=glow.desktop
+image/png=swayimg.desktop
+image/jpg=swayimg.desktop
+image/jpeg=swayimg.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
@@ -16,7 +16,6 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 
 [Added Associations]
-application/x-zerosize=nvim.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/chrome=firefox.desktop;
